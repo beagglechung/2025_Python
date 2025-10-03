@@ -35,6 +35,7 @@ root = tk.Tk()
 root.title("Image Slider")
 
 image_files = ["image1.png", "image2.png", "image3.png", "image4.png"]
+
 interval = 2000 #(2000 = 2초)
 current_index = 0
 

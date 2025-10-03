@@ -3,7 +3,7 @@ import random
 import time
 
 def animate_text(canvas, text_id):
-    for _ in range(10):
+    for _ in range(100):
         update_text_size(canvas, text_id) #글자 크기 변경
         update_text_color(canvas, text_id) #글자 색상 변경
         canvas.update() #변경 사항 즉시 반영
@@ -11,7 +11,7 @@ def animate_text(canvas, text_id):
 
 def update_text_size(canvas, text_id):
     current_size = 100
-    new_size = current_size + random.randint(-10, 10)
+    new_size = current_size + random.randint(-100, 100)
     canvas.itemconfigure(text_id, font=("Helvetica", new_size))
     #canvas.itemconfigure(text_id, fill=new_color)
     #Tkinter 캔버스(Canvas)에 이미 그려진 객체의 속성을 변경하는 함수
