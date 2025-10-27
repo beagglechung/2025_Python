@@ -4,6 +4,11 @@
 - 생성자에서 모델명 초기화, odometer=0
 2. drive(km)로 주행거리 km만큼 증가
 3. info()로 "모델: BMW, 주행거리: 120km" 형식 문자열 반환
+
+c = Car("BMW")
+c.drive(50)
+c.drive(70)
+print(c.info())  # 모델: BWM, 주행거리: 120km
 '''
 
 class Car:
@@ -17,9 +22,8 @@ class Car:
   def info(self):
     return f"모델: {self.model}, 주행거리: {self.odometer}km"
 
-
 # 실행 예시
 c = Car("BMW")
 c.drive(50)
 c.drive(70)
-print(c.info())  # 모델: Avante, 주행거리: 120km
+print(c.info()) 

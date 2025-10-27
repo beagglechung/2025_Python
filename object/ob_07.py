@@ -8,8 +8,7 @@
   (공식: 원화 = 금액 × 환율)
 - to_dollar(amount): 입력한 원화 금액(amount)을 달러로 변환하여 반환한다.  
   (공식: 달러 = 금액 ÷ 환율)
-- update_rate(new_rate): 환율을 새로운 값으로 변경하고,  
-  “USD 환율이 ○○원으로 변경되었습니다.”를 출력한다.
+- update_rate(new_rate): 환율을 새로운 값으로 변경하고,  “USD 환율이 ○○원으로 변경됨”를 출력한다.
 - info(): “통화: USD, 현재 환율: 1440원” 형식으로 출력한다.
 
 3. 다음 코드를 실행했을 때 예시와 같이 출력되도록 하시오.
@@ -35,12 +34,12 @@ class ExchangeRate:
 
   def update_rate(self, new_rate): # 환율 변경
     self.rate = new_rate
-    print(f"{self.currency} 환율이 {new_rate}원으로 변경되었습니다.")
+    print(f"{self.currency} 환율이 {new_rate}원으로 변경됨.")
 
   def info(self):
     print(f"통화: {self.currency}, 현재 환율: {self.rate}원")
 
-usd = ExchangeRate("USD", 1350)
+usd = ExchangeRate("USD", 1440)
 usd.info()
 print("100달러 =", usd.to_won(100), "원")
 print("270000원 =", round(usd.to_dollar(270000), 2), "달러")
