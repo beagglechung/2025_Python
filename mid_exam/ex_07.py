@@ -1,5 +1,8 @@
 '''
-1. 윈도우의 제목은 “중간고사 4번” 으로 한다.
+문제 7. 버튼을 이용한 도형 그리기 
+(※ 아래 그림 예시는 예시일 뿐, 위치와 색상은 동일하지 않아도 됨.)
+
+1. 윈도우의 제목은 “중간고사 7번” 으로 한다.
 2. 윈도우 크기는 420×440 으로 설정한다.
 3. 배경이 흰색(bg="white")인 Canvas(400×320) 를 생성한다.
 4. 아래 네 개의 버튼을 가로로 배치(Frame 사용) 한다.
@@ -14,6 +17,8 @@
 5. Canvas 아래에는 "버튼을 눌러 도형을 선택하세요." 라는 안내 문구를 Label로 표시한다.
 '''
 from tkinter import *
+from PIL import Image, ImageTk
+import os #수정
 
 def draw_rect():
     canvas.delete("all")
@@ -27,11 +32,17 @@ def draw_text():
     canvas.delete("all")
     canvas.create_text(200, 150, text="Hello Tkinter", fill="blue", font=("Helvetica", 20, "bold"))
 
+BASE_DIR = os.path.join(os.path.dirname(__file__), "duksung.png") 
+
 def draw_image():
     canvas.delete("all")
     global img   # 이미지가 사라지지 않도록 전역 변수로 유지
-    img = PhotoImage(file="mid_exam\duksung.png")   # ⚠️ 실제 PNG 경로로 변경
+     # PIL → Tkinter 호환 객체로 변환
+    pil_img = Image.open(BASE_DIR)
+    img = ImageTk.PhotoImage(pil_img)
     canvas.create_image(20, 20, anchor=NW, image=img)
+    #img = PhotoImage(file="mid_exam\")   # ⚠️ 실제 PNG 경로로 변경
+    
 
 def clear_canvas():
     canvas.delete("all")
