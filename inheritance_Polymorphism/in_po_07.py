@@ -1,3 +1,36 @@
+'''
+주문·배달 시스템 
+1. 부모 클래스 Food
+- 속성 : name, price
+-  total_price(qty): 수량(qty)만큼의 총 가격을 반환한다.
+- __str__() : "메뉴 : 김밥, 단가 : 3000원" 형식의 문자열 반환
+2. 자식 클래스 DeliveryFood(Food)
+- 속성 : delivery_fee (배달비)
+- total_price(qty) 메서드를 오버라이딩(override) 하여, (단가 × 수량) + 배달비를 반환하도록 수정한다.
+__str__()를 오버라이딩하여 "메뉴: 치킨, 단가: 18000원, 배달비: 3000원" 형식으로 표시한다.
+3. 주문 클래스 Order
+- items: (Food 객체, 수량) 형태의 리스트로 주문목록 저장
+- add(food, qty): 메뉴를 장바구니에 추가
+- clear(): 장바구니 초기화
+- total(): 장바구니 내 모든 항목의 합계 계산
+- summary_lines(): 영수증 형태로 문자열 리스트 반환
+4. 창 설정
+- 제목 : 주문·배달 시스템
+- 크기: 680×440
+- 왼쪽은 메뉴, 오른쪽은 장바구니 및 영수증 표시
+5. 왼쪽 영역
+- Listbox로 메뉴 목록 출력
+- Spinbox로 수량 선택
+- "장바구니 담기" 버튼 클릭 시 → 선택한 메뉴가 장바구니에 추가됨
+6. 오른쪽 영역
+- Listbox로 장바구니 항목 표시
+- "전체 비우기", "주문하기" 버튼 포함
+- 합계 금액 Label 표시
+- 주문 완료 시 Text 위젯에 영수증 표시
+7. 기능 동작
+- DeliveryFood 객체는 배달비가 자동 계산되어 표시
+- 다형성(polymorphism)에 의해 Food와 DeliveryFood가 한 리스트 안에서도 정상적으로 합계 계산 가능
+'''
 import tkinter as tk
 from tkinter import messagebox
 
